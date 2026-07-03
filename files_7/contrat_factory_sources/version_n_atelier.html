@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+@page { size:A4; margin:0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-size: 9.6px; line-height: 1.5; }
+sup { font-size: 6px; }
+.row { display:flex; gap:10px; }
+.half { flex:1; }
+.vgrid { width:100%; border-collapse:collapse; }
+.vgrid td { padding:2.2px 0; vertical-align:top; }
+.vgrid .k { width:44%; padding-right:8px; }
+table.items { width:100%; border-collapse:collapse; }
+table.items th.num, table.items td.num { text-align:right; }
+table.items th.qty, table.items td.qty { text-align:center; width:42px; }
+table.items td.pos { width:22px; }
+.pay-meta { display:flex; justify-content:space-between; margin-bottom:3px; }
+.sigs { display:flex; gap:10px; }
+.sig { flex:1; height:72px; padding:8px 11px; }
+.fill { display: inline-block; border-bottom: 1px dotted currentColor; opacity-x: 1; min-height: 8px; vertical-align: bottom; }
+.f-xs { width: 52px; } .f-s { width: 88px; } .f-m { width: 130px; } .f-l { width: 185px; } .f-xl { width: 240px; }
+:root { --steel:#2b2f36; --steel2:#3d434c; --oil:#8a6d3b; --grease:#c8933b; --paper:#f4f2ee; --panel:#eceae4; --line:#cfccc3; --ink:#26292e; --muted:#7c7970; }
+body { font-family:"Liberation Sans",sans-serif; font-size:9.4px; color:var(--ink); background:var(--paper); }
+.mono { font-family:"DejaVu Sans Mono",monospace; }
+.fill { border-bottom:1px dotted #a7a49b; }
+.carwm { position:fixed; top:118mm; left:38mm; width:134mm; height:65mm; z-index:-1; opacity:0.3;
+  background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20620%20300%27%3E%0A%3Cg%20fill%3D%27none%27%20stroke%3D%27%237a7f86%27%20stroke-width%3D%275%27%20stroke-linejoin%3D%27round%27%20stroke-linecap%3D%27round%27%3E%0A%3C%21--%20crown%20--%3E%0A%3Cpath%20d%3D%27M232%2070%20L250%2034%20L288%2060%20L310%2022%20L332%2060%20L370%2034%20L388%2070%20L232%2070%20Z%27/%3E%0A%3Ccircle%20cx%3D%27250%27%20cy%3D%2734%27%20r%3D%276%27%20fill%3D%27%237a7f86%27/%3E%3Ccircle%20cx%3D%27310%27%20cy%3D%2722%27%20r%3D%276%27%20fill%3D%27%237a7f86%27/%3E%3Ccircle%20cx%3D%27370%27%20cy%3D%2734%27%20r%3D%276%27%20fill%3D%27%237a7f86%27/%3E%0A%3Cline%20x1%3D%27232%27%20y1%3D%2782%27%20x2%3D%27388%27%20y2%3D%2782%27/%3E%0A%3C%21--%20hatchback%20body%20--%3E%0A%3Cpath%20d%3D%27M60%20232%20L92%20232%20M528%20232%20L560%20232%27/%3E%0A%3Cpath%20d%3D%27M78%20232%20C78%20210%2096%20196%20118%20196%20L150%20196%20L196%20150%20C206%20140%20220%20134%20236%20134%20L392%20134%20C410%20134%20428%20142%20440%20156%20L474%20196%20L508%20200%20C532%20204%20548%20222%20548%20232%27/%3E%0A%3Cpath%20d%3D%27M78%20232%20L548%20232%27/%3E%0A%3C%21--%20windows%20--%3E%0A%3Cpath%20d%3D%27M204%20158%20L232%20134%20M300%20134%20L300%20190%20M300%20190%20L172%20190%20L204%20158%20M392%20134%20L392%20190%20L300%20190%27/%3E%0A%3C%21--%20wheels%20--%3E%0A%3Ccircle%20cx%3D%27176%27%20cy%3D%27234%27%20r%3D%2740%27/%3E%3Ccircle%20cx%3D%27176%27%20cy%3D%27234%27%20r%3D%2716%27/%3E%0A%3Ccircle%20cx%3D%27452%27%20cy%3D%27234%27%20r%3D%2740%27/%3E%3Ccircle%20cx%3D%27452%27%20cy%3D%27234%27%20r%3D%2716%27/%3E%0A%3C%21--%20ground%20--%3E%0A%3Cline%20x1%3D%2730%27%20y1%3D%27276%27%20x2%3D%27590%27%20y2%3D%27276%27%20stroke-dasharray%3D%272%2014%27/%3E%0A%3C/g%3E%3C/svg%3E'); background-size:100% 100%; }
+.sheet { padding:11mm 13mm 9mm 13mm; }
+/* header plate */
+.plate { background:var(--steel); color:#e9e7e1; border:2px solid var(--steel); border-radius:3px; padding:8px 14px; display:flex; justify-content:space-between; align-items:center; }
+.plate .brand { font-family:"DejaVu Sans Mono"; font-weight:bold; font-size:15px; letter-spacing:2px; }
+.plate .brand small { display:block; font-family:"Liberation Sans"; font-weight:normal; font-size:7.4px; letter-spacing:2px; color:#a9a69d; margin-top:2px; text-transform:uppercase; }
+.plate .doc { text-align:right; font-family:"DejaVu Sans Mono"; font-size:8.4px; color:#cbc8bf; line-height:1.7; }
+.plate .doc b { color:#e9e7e1; font-weight:normal; }
+.plate .doc .fill { border-bottom-color:#6a6e75; }
+.tapebar { height:5px; background:repeating-linear-gradient(45deg,var(--grease) 0 12px,var(--steel) 12px 24px); margin-top:3px; opacity:0.85; }
+/* sections */
+h2.sec { font-family:"DejaVu Sans Mono"; font-size:8.4px; letter-spacing:2px; text-transform:uppercase; color:var(--steel); margin:9px 0 3.5px 0; border-bottom:1px solid var(--line); padding-bottom:2px; }
+h2.sec::before { content:"▪ "; color:var(--grease); }
+.panel { background:rgba(236,234,228,0.72); border:1px solid var(--line); border-left:3px solid var(--steel); padding:6px 11px; }
+.panel p { margin-bottom:2.4px; }
+.vgrid .k { font-family:"DejaVu Sans Mono"; font-size:7.6px; color:var(--muted); text-transform:uppercase; letter-spacing:.3px; }
+.vgrid .v b { color:var(--steel); }
+/* items */
+table.items th { font-family:"DejaVu Sans Mono"; font-size:7.4px; letter-spacing:1.5px; text-transform:uppercase; color:#e9e7e1; background:var(--steel); text-align:left; padding:4px 10px; }
+table.items td { padding:4px 10px; border-bottom:1px solid var(--line); background:rgba(255,255,255,0.55); }
+table.items td.pos { font-family:"DejaVu Sans Mono"; color:var(--muted); }
+tr.discount td { color:var(--oil); font-style:italic; }
+tr.total td { background:var(--steel2); color:#e9e7e1; font-family:"DejaVu Sans Mono"; font-size:10.5px; padding:6px 10px; border-bottom:none; }
+tr.total td:last-child { color:var(--grease); font-size:12px; }
+tr.total td small { font-size:7px; color:#a9a69d; }
+tr.total .fill { border-bottom-color:#7a7f86; }
+/* signatures */
+.sig { border:1px solid var(--line); background:rgba(236,234,228,0.72); position:relative; }
+.sig::after { content:"BON POUR ACCORD"; position:absolute; right:9px; bottom:7px; font-family:"DejaVu Sans Mono"; font-size:6.2px; letter-spacing:1.5px; color:var(--line); border:1px solid var(--line); padding:1px 5px; border-radius:2px; }
+.sig h4 { font-family:"DejaVu Sans Mono"; font-size:8.6px; letter-spacing:1.5px; text-transform:uppercase; color:var(--steel); }
+.sig p { font-size:7.6px; color:var(--muted); margin-top:2px; }
+.sig-intro { margin:9px 1px 5px 1px; }
+.footer { margin-top:8px; border-top:1px solid var(--line); padding-top:5px; text-align:center; font-family:"DejaVu Sans Mono"; font-size:6.6px; letter-spacing:.4px; color:var(--muted); line-height:1.7; }
+</style></head><body>
+<div class="carwm"></div>
+<div class="sheet">
+
+<div class="plate">
+  <div class="brand">GARAGE — VÉHICULE D'OCCASION<small>Contrat de vente · atelier mécanique</small></div>
+  <div class="doc">N° CONTRAT <b><span class="fill f-s"></span></b><br>DATE <b><span class="fill f-s"></span></b></div>
+</div>
+<div class="tapebar"></div>
+
+<div class="row" style="margin-top:8px">
+  <div class="half"><h2 class="sec">Vendeur</h2><div class="panel">
+    <p>Raison sociale : <span class="fill f-l"></span></p>
+    <p>Adresse : <span class="fill f-xl"></span></p>
+    <p>SIREN : <span class="fill f-s"></span> — SIRET : <span class="fill f-m"></span></p>
+    <p>Tél. : <span class="fill f-s"></span> — Email : <span class="fill f-m"></span></p>
+</div></div>
+  <div class="half"><h2 class="sec">Acheteur</h2><div class="panel">
+    <p>Nom, prénom : <span class="fill f-l"></span></p>
+    <p>Adresse : <span class="fill f-xl"></span></p>
+    <p>Tél. : <span class="fill f-s"></span> — Email : <span class="fill f-m"></span></p>
+    <p>Pièce d'identité (type et n°) : <span class="fill f-m"></span></p>
+</div></div>
+</div>
+
+<h2 class="sec">Fiche technique du véhicule</h2>
+<div class="panel"><table class="vgrid">
+    <tr><td class="k">Marque, modèle | Puissance</td><td class="v"><b>Renault Clio 1.0 SCe — 72 ch / 53 kW</b></td></tr>
+    <tr><td class="k">VIN | Pays d'origine | N° d'immatriculation</td><td class="v">VF1<span class="fill f-s"></span> | FR | <span class="fill f-s"></span></td></tr>
+    <tr><td class="k">Carburant | Moteur d'origine | Classe environnementale</td><td class="v">Essence | Oui | Euro 6</td></tr>
+    <tr><td class="k">Kilométrage (non garanti)</td><td class="v"><span class="fill f-s"></span> km</td></tr>
+    <tr><td class="k">1<sup>re</sup> mise en circulation | Dernier entretien | CT valable jusqu'au</td><td class="v"><span class="fill f-xs"></span> | <span class="fill f-xs"></span> | <span class="fill f-xs"></span></td></tr>
+    <tr><td class="k">Nombre de clés | Propriétaires précédents</td><td class="v"><span class="fill f-xs"></span> | <span class="fill f-xs"></span></td></tr>
+    <tr><td class="k">Accidenté | Véhicule de société</td><td class="v"><span class="fill f-xs"></span> | <span class="fill f-xs"></span></td></tr>
+    <tr><td class="k">Régime de TVA</td><td class="v"><span class="fill f-m"></span></td></tr>
+</table></div>
+
+<h2 class="sec">Bon de commande — produits &amp; prestations</h2>
+<table class="items">
+  <tr><th style="width:22px">#</th><th>Article</th><th class="qty">Nombre</th><th class="num" style="width:90px">Prix €</th></tr>
+  
+  <tr><td class="pos">01</td><td><b>Voiture — Renault Clio 1.0 SCe</b></td><td class="qty">01</td><td class="num"><span class="fill f-s"></span> €</td></tr>
+  <tr class="discount"><td></td><td>Remise commerciale</td><td class="qty"></td><td class="num">− <span class="fill f-xs"></span> €</td></tr>
+  <tr><td class="pos">02</td><td>Garantie <span class="fill f-xs"></span> mois</td><td class="qty">01</td><td class="num"><span class="fill f-xs"></span> €</td></tr>
+  <tr><td class="pos">03</td><td>Immatriculation (carte grise) par nos soins</td><td class="qty">01</td><td class="num"><span class="fill f-xs"></span> €</td></tr>
+  <tr><td class="pos">04</td><td>Préparation &amp; mise à disposition</td><td class="qty">01</td><td class="num"><span class="fill f-xs"></span> €</td></tr>
+  <tr><td class="pos">05</td><td>Frais de livraison</td><td class="qty">01</td><td class="num"><span class="fill f-xs"></span> €</td></tr>
+
+  <tr class="total"><td colspan="3">TOTAL <small>— TVA INCLUSE (SELON RÉGIME APPLICABLE)</small></td><td class="num"><span class="fill f-s"></span> €</td></tr>
+</table>
+
+<h2 class="sec">Règlement</h2>
+<div class="panel">
+  <div class="pay-meta">
+    <div><b>Mode de paiement :</b> Virement bancaire</div>
+    <div><b>Montant :</b> <span class="fill f-s"></span> €</div>
+  </div>
+  <p>Le total doit être réglé par virement bancaire sur le compte suivant avant la livraison :</p>
+  <p>Titulaire du compte : <span class="fill f-l"></span></p>
+  <p>IBAN : <span class="fill f-xl"></span> &nbsp;&nbsp; BIC : <span class="fill f-s"></span></p>
+  <p>Référence à mentionner : <span class="fill f-m"></span></p>
+</div>
+
+<h2 class="sec">Remise du véhicule</h2>
+<div class="panel"><p>Point de livraison : <span class="fill f-xl"></span> &nbsp;&nbsp; Date prévue : <span class="fill f-s"></span></p></div>
+
+
+<p class="sig-intro">Fait à <span class="fill f-m"></span>, le <span class="fill f-s"></span>, en deux exemplaires originaux, dont un remis à chaque partie.</p>
+<div class="sigs">
+  <div class="sig"><h4>Le vendeur</h4><p>Signature précédée de la mention « Lu et approuvé »</p></div>
+  <div class="sig"><h4>L'acheteur</h4><p>Signature précédée de la mention « Lu et approuvé »</p></div>
+</div>
+
+<div class="footer">Raison sociale — Forme juridique — Adresse du siège social — SIREN — SIRET — Capital social (le cas échéant)<br>
+Tél. — Email — N° TVA intracommunautaire ou mention du régime applicable (à compléter)</div>
+</div>
+</body></html>

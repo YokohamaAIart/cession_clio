@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+@page { size: A4; margin: 12mm 14mm 10mm 14mm; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #2c3e50;
+  --accent: #b9974e;
+  --band: #f2f5f7;
+  --line: #dde4e9;
+  --txt: #33404b;
+  --muted: #7c8a96;
+}
+body { font-family: "Liberation Sans", sans-serif; font-size: 9.7px; color: var(--txt); line-height: 1.5; }
+h1, h2, .lbl { font-family: "Poppins", sans-serif; }
+
+/* ---------- header ---------- */
+.header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid var(--primary); padding-bottom: 7px; }
+.brand { font-family: "Poppins"; font-weight: 600; font-size: 18px; color: var(--primary); letter-spacing: 0.5px; }
+.brand span { color: var(--accent); }
+.brand-sub { font-size: 8.6px; color: var(--muted); letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
+.doc-meta { text-align: right; }
+.doc-title { font-family: "Poppins"; font-weight: 600; font-size: 14px; color: var(--primary); }
+.doc-ref { font-size: 9px; color: var(--muted); margin-top: 2px; }
+.doc-ref b { color: var(--txt); font-weight: normal; }
+
+/* ---------- parties ---------- */
+.parties { display: flex; gap: 16px; margin-top: 11px; }
+.party { flex: 1; }
+.party h2 { font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); font-weight: 600; border-bottom: 1px solid var(--line); padding-bottom: 2px; margin-bottom: 4px; }
+.party p { margin-bottom: 2.5px; }
+.party .name { font-weight: bold; color: var(--primary); }
+.fill { display: inline-block; border-bottom: 1px dotted #a8b4bd; min-height: 8px; vertical-align: bottom; }
+.f-xs { width: 52px; } .f-s { width: 88px; } .f-m { width: 130px; } .f-l { width: 185px; } .f-xl { width: 240px; }
+
+.delivery { margin-top: 9px; background: var(--band); border-left: 3px solid var(--accent); padding: 6px 9px; }
+.delivery b { font-family: "Poppins"; font-weight: 600; font-size: 8px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; margin-right: 6px; }
+
+/* ---------- items table ---------- */
+.section-title { font-family: "Poppins"; font-weight: 600; font-size: 10px; color: #fff; background: var(--primary); padding: 4.5px 9px; margin-top: 11px; text-transform: uppercase; letter-spacing: 1px; }
+table.items { width: 100%; border-collapse: collapse; }
+table.items th { font-family: "Poppins"; font-weight: 500; font-size: 8.4px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); text-align: left; padding: 3px 8px; border-bottom: 1px solid var(--line); background: var(--band); }
+table.items th.num, table.items td.num { text-align: right; }
+table.items th.qty, table.items td.qty { text-align: center; width: 38px; }
+table.items td { padding: 4px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.items td.pos { color: var(--muted); width: 20px; }
+table.items .main b { color: var(--primary); }
+tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px solid var(--line); }
+
+/* vehicle detail grid */
+.vehicle td { border-bottom: 1px solid var(--line); padding: 0 8px 4px 8px; }
+.vgrid { width: 100%; border-collapse: collapse; margin-top: 1px; }
+.vgrid td { border: none !important; padding: 2px 0 !important; }
+.vgrid .k { width: 46%; color: var(--muted); padding-right: 8px !important; }
+.vgrid .v { color: var(--txt); }
+.hl { background: #fdf6e3; padding: 0 3px; }
+
+/* ---------- total ---------- */
+.total-row { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--primary); border-bottom: 1px solid var(--line); margin-top: 0; padding: 7px 9px; }
+.total-row .t-lbl { font-family: "Poppins"; font-weight: 600; font-size: 12.5px; color: var(--primary); }
+.total-row .t-sub { font-size: 7.6px; color: var(--muted); }
+.total-row .t-val { font-family: "Poppins"; font-weight: 600; font-size: 14px; color: var(--accent); }
+
+/* ---------- payment ---------- */
+.pay-lines { display: flex; justify-content: space-between; padding: 6px 9px 3px 9px; }
+.pay-lines div { font-size: 9.7px; }
+.pay-lines b { font-family: "Poppins"; font-weight: 600; color: var(--primary); }
+.paybox { border: 1.4px solid var(--primary); margin-top: 7px; padding: 8px 11px; }
+.paybox h3 { font-family: "Poppins"; font-weight: 600; font-size: 9.4px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px; }
+.paybox p { margin-bottom: 3px; }
+
+/* ---------- signatures ---------- */
+.sig-intro { margin-top: 11px; padding: 0 2px; }
+.sigs { display: flex; gap: 14px; margin-top: 4px; }
+.sig { flex: 1; border: 1px solid var(--line); background: var(--band); padding: 8px 11px; height: 78px; }
+.sig h4 { font-family: "Poppins"; font-weight: 600; font-size: 9.4px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; }
+.sig p { font-size: 8.2px; color: var(--muted); margin-top: 1px; }
+
+/* ---------- footer ---------- */
+.footer { margin-top: 11px; border-top: 1px solid var(--line); padding-top: 5px; font-size: 7.6px; color: var(--muted); text-align: center; line-height: 1.5; }
+.footbar { height: 3.5px; background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="brand">DOS SANTOS <span>AUTOMOBILES</span></div>
+    <div class="brand-sub">Négoce de véhicules d'occasion — Livry-Gargan</div>
+  </div>
+  <div class="doc-meta">
+    <div class="doc-title">Contrat de vente — Véhicule d'occasion</div>
+    <div class="doc-ref">N° de contrat : <b>[À COMPLÉTER]</b> &nbsp;•&nbsp; Date : <b>02/03/2026</b></div>
+  </div>
+</div>
+
+<div class="parties">
+  <div class="party">
+    <h2>Vendeur</h2>
+    <p class="name">DOS SANTOS ALVARELHOS Kevin</p>
+    <p>24 Avenue Jean-Jacques Rousseau, 93190 Livry-Gargan</p>
+    <p>SIREN : 878 954 130 — RCS Bobigny</p>
+    <p>Tél. : +33 7 53 43 30 56</p>
+    <p>Négociant automobile (professionnel acquéreur, art. R.322-4 CR)</p>
+  </div>
+  <div class="party">
+    <h2>Acheteur</h2>
+    <p class="name">MÉHIDI Hakim</p>
+    <p>Né le 22/07/1995 à Châlons-en-Champagne</p>
+    <p>13 rue de Savigny, Escalier 2, 91390 Morsang-sur-Orge</p>
+    <p>Tél. : +33 3 65 20 59 422 &nbsp; Email : Hakim.mehidi@yahoo.fr</p>
+  </div>
+</div>
+
+<div class="delivery"><b>Point de livraison</b> Athis-Mons (91)&nbsp;&nbsp;Date de remise : 02/03/2026</div>
+
+<div class="section-title">Produits et services</div>
+<table class="items">
+  <tr><th style="width:20px">#</th><th>Article</th><th class="qty">Nombre</th><th class="num" style="width:80px">Prix €</th></tr>
+  <tr class="main"><td class="pos">01</td><td><b>Voiture — Renault Clio V E-Tech Hybride Limited</b></td><td class="qty">01</td><td class="num">15 800,00 €</td></tr>
+  <tr class="discount"><td></td><td>Remise commerciale</td><td class="qty"></td><td class="num">— €</td></tr>
+  <tr class="vehicle"><td></td><td colspan="3">
+    <table class="vgrid">
+      <tr><td class="k">Marque, modèle | Puissance</td><td class="v"><b>Renault Clio V E-Tech Hybride — finition Limited</b> | 67 kW (5 CV fisc.)</td></tr>
+      <tr><td class="k">VIN | Type-variante-version | Genre</td><td class="v">VF1RJA00168812703 | RJABH2MU4UA3FA5200 | VP</td></tr>
+      <tr><td class="k">N° d'immatriculation | Pays</td><td class="v">GF-405-GG | FR</td></tr>
+      <tr><td class="k">Carburant | Classe environnementale</td><td class="v">Hybride essence (EH) | Euro 6d</td></tr>
+      <tr><td class="k">Kilométrage (non garanti)</td><td class="v">28 500 km</td></tr>
+      <tr><td class="k">1<sup>re</sup> mise en circulation | CT valable jusqu'au</td><td class="v">18/03/2022 | 01/10/2027</td></tr>
+      <tr><td class="k">Nombre de clés | Propriétaires précédents</td><td class="v"><span class="fill f-xs"></span> | [À COMPLÉTER]</td></tr>
+      <tr><td class="k">Accidenté | Véhicule de société</td><td class="v">Non | Non</td></tr>
+      <tr><td class="k">Régime de TVA</td><td class="v">TVA sur la marge — art. 297 A CGI [à confirmer]</td></tr>
+    </table>
+  </td></tr>
+  <tr><td class="pos">02</td><td>Garantie légale (vices cachés, art. 1641 CC)</td><td class="qty">01</td><td class="num">incluse</td></tr>
+  <tr><td class="pos">03</td><td>Immatriculation (carte grise) à la charge de l'acheteur</td><td class="qty">01</td><td class="num">— €</td></tr>
+  <tr><td class="pos">04</td><td>Préparation &amp; mise à disposition</td><td class="qty">01</td><td class="num">incluse</td></tr>
+  <tr><td class="pos">05</td><td>Frais de livraison</td><td class="qty">01</td><td class="num">— €</td></tr>
+</table>
+
+<div class="total-row">
+  <div><span class="t-lbl">Total</span> &nbsp;<span class="t-sub">TVA incluse (selon régime applicable)</span></div>
+  <div class="t-val">15 800,00 €</div>
+</div>
+
+<div class="pay-lines">
+  <div><b>Mode de paiement :</b> Virement bancaire</div>
+  <div><b>Montant du paiement :</b> 15 800,00 €</div>
+</div>
+
+<div class="paybox">
+  <h3>Informations de paiement</h3>
+  <p>Le total doit être réglé par virement bancaire sur le compte suivant avant la livraison :</p>
+  <p>Titulaire du compte : DOS SANTOS ALVARELHOS Kevin</p>
+  <p>IBAN : [À COMPLÉTER] &nbsp;&nbsp; BIC : [À COMPLÉTER]</p>
+  <p>Référence à mentionner : Vente Clio GF-405-GG</p>
+</div>
+
+<p class="sig-intro">Fait à Athis-Mons, le 02/03/2026, en deux exemplaires originaux, dont un remis à chaque partie.</p>
+<div class="sigs">
+  <div class="sig">
+    <h4>Le vendeur</h4>
+    <p>Signature précédée de la mention « Lu et approuvé »</p>
+  </div>
+  <div class="sig">
+    <h4>L'acheteur</h4>
+    <p>Signature précédée de la mention « Lu et approuvé »</p>
+  </div>
+</div>
+
+<div class="footer">
+  DOS SANTOS ALVARELHOS Kevin — SIREN 878 954 130 — RCS Bobigny — 24 Avenue Jean-Jacques Rousseau, 93190 Livry-Gargan<br>
+  Tél. +33 7 53 43 30 56 — Régime TVA sur la marge (art. 297 A CGI) [à confirmer]
+</div>
+<div class="footbar"></div>
+
+</body>
+</html>
