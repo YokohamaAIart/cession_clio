@@ -6,7 +6,7 @@ from weasyprint import HTML
 src = open('version_a.html').read()
 
 # --- SELLER block ---
-seller_old = '''    <p>Raison sociale: <span class="fill f-l"></span></p>
+seller_old = '''    <p>Raison sociale : <span class="fill f-l"></span></p>
     <p>Adresse : <span class="fill f-xl"></span></p>
     <p>SIREN : <span class="fill f-s"></span> — SIRET : <span class="fill f-m"></span></p>
     <p>Tél. : <span class="fill f-m"></span></p>
@@ -60,9 +60,9 @@ new_vgrid = '''<table class="vgrid">
       <tr><td class="k">Carburant | Classe environnementale</td><td class="v">Hybride essence (EH) | Euro 6d</td></tr>
       <tr><td class="k">Kilométrage (non garanti)</td><td class="v">28 500 km</td></tr>
       <tr><td class="k">1<sup>re</sup> mise en circulation | CT valable jusqu'au</td><td class="v">18/03/2022 | 01/10/2027</td></tr>
-      <tr><td class="k">Nombre de clés | Propriétaires précédents</td><td class="v"><span class="fill f-xs"></span> | [À COMPLÉTER]</td></tr>
+      <tr><td class="k">Nombre de clés | Propriétaires précédents</td><td class="v"><span class="fill f-xs"></span> | 2</td></tr>
       <tr><td class="k">Accidenté | Véhicule de société</td><td class="v">Non | Non</td></tr>
-      <tr><td class="k">Régime de TVA</td><td class="v">TVA sur la marge — art. 297 A CGI [à confirmer]</td></tr>
+      <tr><td class="k">Régime de TVA</td><td class="v">TVA sur la marge — art. 297 A CGI</td></tr>
     </table>'''
 # find the vgrid block and swap
 start = src.find('<table class="vgrid">')
@@ -115,8 +115,8 @@ src = src.replace(
 
 # --- footer: seller identity ---
 src = src.replace(
-  'Raison sociale — Forme juridique — Adresse du siège social — SIREN — SIRET — Capital social (le cas échéant)<br>\n  Tél. — Email — N° TVA intracommunautaire ou mention du régime applicable (à compléter)',
-  'DOS SANTOS ALVARELHOS Kevin — SIREN 878 954 130 — RCS Bobigny — 24 Avenue Jean-Jacques Rousseau, 93190 Livry-Gargan<br>\n  Tél. +33 7 53 43 30 56 — Régime TVA sur la marge (art. 297 A CGI) [à confirmer]')
+  'Raison sociale — Forme juridique — Adresse du siège social — SIREN — Capital social (le cas échéant)<br>\n  Tél. — Email — N° TVA intracommunautaire ou mention du régime applicable (à compléter)',
+  'DOS SANTOS ALVARELHOS Kevin — SIREN 878 954 130 — RCS Bobigny — 24 avenue Jean-Jacques Rousseau, 93190 Livry-Gargan<br>\n  Tél. +33 7 53 43 30 56 — Régime TVA sur la marge (art. 297 A CGI)')
 
 # --- brand header -> neutral seller banner ---
 src = src.replace('<div class="brand">VOTRE <span>ENTREPRISE</span></div>',
@@ -124,5 +124,5 @@ src = src.replace('<div class="brand">VOTRE <span>ENTREPRISE</span></div>',
 src = src.replace('Logo / activité — Ville', "Négoce de véhicules d'occasion — Livry-Gargan")
 
 open('rempli_dossantos_mehidi.html','w').write(src)
-HTML(string=src, base_url='.').write_pdf('rempli_dossantos_mehidi.pdf')
+HTML(string=src, base_url='.').write_pdf('rempli_dossantos_mehidi.sour_fill_real_7pdf')
 print('filled ok')
