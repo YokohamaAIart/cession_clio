@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <style>
-@page { size: A4; margin: 12mm 14mm 10mm 14mm; }
+@page { size: A4; margin: 16mm 16mm 14mm 16mm; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #2c3e50;
@@ -13,38 +13,38 @@
   --txt: #33404b;
   --muted: #7c8a96;
 }
-body { font-family: "Liberation Sans", sans-serif; font-size: 9.7px; color: var(--txt); line-height: 1.5; }
+body { font-family: "Liberation Sans", sans-serif; font-size: 10.8px; color: var(--txt); line-height: 1.65; }
 h1, h2, .lbl { font-family: "Poppins", sans-serif; }
 
 /* ---------- header ---------- */
-.header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid var(--primary); padding-bottom: 7px; }
-.brand { font-family: "Poppins"; font-weight: 600; font-size: 18px; color: var(--primary); letter-spacing: 0.5px; }
+.header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid var(--primary); padding-bottom: 9px; }
+.brand { font-family: "Poppins"; font-weight: 600; font-size: 20px; color: var(--primary); letter-spacing: 0.5px; }
 .brand span { color: var(--accent); }
 .brand-sub { font-size: 8.6px; color: var(--muted); letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
 .doc-meta { text-align: right; }
-.doc-title { font-family: "Poppins"; font-weight: 600; font-size: 14px; color: var(--primary); }
+.doc-title { font-family: "Poppins"; font-weight: 600; font-size: 15.5px; color: var(--primary); }
 .doc-ref { font-size: 9px; color: var(--muted); margin-top: 2px; }
 .doc-ref b { color: var(--txt); font-weight: normal; }
 
 /* ---------- parties ---------- */
-.parties { display: flex; gap: 16px; margin-top: 11px; }
+.parties { display: flex; gap: 18px; margin-top: 16px; }
 .party { flex: 1; }
-.party h2 { font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); font-weight: 600; border-bottom: 1px solid var(--line); padding-bottom: 2px; margin-bottom: 4px; }
-.party p { margin-bottom: 2.5px; }
+.party h2 { font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); font-weight: 600; border-bottom: 1px solid var(--line); padding-bottom: 3px; margin-bottom: 6px; }
+.party p { margin-bottom: 4px; }
 .party .name { font-weight: bold; color: var(--primary); }
 .fill { display: inline-block; border-bottom: 1px dotted #a8b4bd; min-height: 8px; vertical-align: bottom; }
 .f-xs { width: 52px; } .f-s { width: 88px; } .f-m { width: 130px; } .f-l { width: 185px; } .f-xl { width: 240px; }
 
-.delivery { margin-top: 9px; background: var(--band); border-left: 3px solid var(--accent); padding: 6px 9px; }
+.delivery { margin-top: 13px; background: var(--band); border-left: 3px solid var(--accent); padding: 8px 11px; }
 .delivery b { font-family: "Poppins"; font-weight: 600; font-size: 8px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; margin-right: 6px; }
 
 /* ---------- items table ---------- */
-.section-title { font-family: "Poppins"; font-weight: 600; font-size: 10px; color: #fff; background: var(--primary); padding: 4.5px 9px; margin-top: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.section-title { font-family: "Poppins"; font-weight: 600; font-size: 11px; color: #fff; background: var(--primary); padding: 6px 9px; margin-top: 16px; text-transform: uppercase; letter-spacing: 1px; }
 table.items { width: 100%; border-collapse: collapse; }
-table.items th { font-family: "Poppins"; font-weight: 500; font-size: 8.4px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); text-align: left; padding: 3px 8px; border-bottom: 1px solid var(--line); background: var(--band); }
+table.items th { font-family: "Poppins"; font-weight: 500; font-size: 9.2px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); background: var(--band); }
 table.items th.num, table.items td.num { text-align: right; }
 table.items th.qty, table.items td.qty { text-align: center; width: 38px; }
-table.items td { padding: 4px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.items td { padding: 5px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
 table.items td.pos { color: var(--muted); width: 20px; }
 table.items .main b { color: var(--primary); }
 tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px solid var(--line); }
@@ -52,34 +52,34 @@ tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px sol
 /* vehicle detail grid */
 .vehicle td { border-bottom: 1px solid var(--line); padding: 0 8px 4px 8px; }
 .vgrid { width: 100%; border-collapse: collapse; margin-top: 1px; }
-.vgrid td { border: none !important; padding: 2px 0 !important; }
+.vgrid td { border: none !important; padding: 3px 0 !important; }
 .vgrid .k { width: 46%; color: var(--muted); padding-right: 8px !important; }
 .vgrid .v { color: var(--txt); }
 .hl { background: #fdf6e3; padding: 0 3px; }
 
 /* ---------- total ---------- */
-.total-row { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--primary); border-bottom: 1px solid var(--line); margin-top: 0; padding: 7px 9px; }
-.total-row .t-lbl { font-family: "Poppins"; font-weight: 600; font-size: 12.5px; color: var(--primary); }
-.total-row .t-sub { font-size: 7.6px; color: var(--muted); }
-.total-row .t-val { font-family: "Poppins"; font-weight: 600; font-size: 14px; color: var(--accent); }
+.total-row { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--primary); border-bottom: 1px solid var(--line); margin-top: 0; padding: 9px 9px; }
+.total-row .t-lbl { font-family: "Poppins"; font-weight: 600; font-size: 14px; color: var(--primary); }
+.total-row .t-sub { font-size: 8.4px; color: var(--muted); }
+.total-row .t-val { font-family: "Poppins"; font-weight: 600; font-size: 15.5px; color: var(--accent); }
 
 /* ---------- payment ---------- */
-.pay-lines { display: flex; justify-content: space-between; padding: 6px 9px 3px 9px; }
-.pay-lines div { font-size: 9.7px; }
+.pay-lines { display: flex; justify-content: space-between; padding: 8px 9px 4px 9px; }
+.pay-lines div { font-size: 10.8px; }
 .pay-lines b { font-family: "Poppins"; font-weight: 600; color: var(--primary); }
 .paybox { border: 1.4px solid var(--primary); margin-top: 7px; padding: 8px 11px; }
 .paybox h3 { font-family: "Poppins"; font-weight: 600; font-size: 9.4px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px; }
 .paybox p { margin-bottom: 3px; }
 
 /* ---------- signatures ---------- */
-.sig-intro { margin-top: 11px; padding: 0 2px; }
-.sigs { display: flex; gap: 14px; margin-top: 4px; }
-.sig { flex: 1; border: 1px solid var(--line); background: var(--band); padding: 8px 11px; height: 78px; }
-.sig h4 { font-family: "Poppins"; font-weight: 600; font-size: 9.4px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; }
-.sig p { font-size: 8.2px; color: var(--muted); margin-top: 1px; }
+.sig-intro { margin-top: 16px; padding: 0 2px; }
+.sigs { display: flex; gap: 14px; margin-top: 6px; }
+.sig { flex: 1; border: 1px solid var(--line); background: var(--band); padding: 10px 11px; height: 95px; }
+.sig h4 { font-family: "Poppins"; font-weight: 600; font-size: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; }
+.sig p { font-size: 9px; color: var(--muted); margin-top: 2px; }
 
 /* ---------- footer ---------- */
-.footer { margin-top: 11px; border-top: 1px solid var(--line); padding-top: 5px; font-size: 7.6px; color: var(--muted); text-align: center; line-height: 1.5; }
+.footer { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 7px; font-size: 8.4px; color: var(--muted); text-align: center; line-height: 1.6; }
 .footbar { height: 3.5px; background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); margin-top: 4px; }
 </style>
 </head>
@@ -92,15 +92,15 @@ tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px sol
   </div>
   <div class="doc-meta">
     <div class="doc-title">Contrat de vente — Véhicule d'occasion</div>
-    <div class="doc-ref">N° de contrat : <b>[À COMPLÉTER]</b> &nbsp;•&nbsp; Date : <b>02/03/2026</b></div>
+    <div class="doc-ref">N° de contrat : <b>GF-405-GG</b> &nbsp;•&nbsp; Date : <b>02/03/2026</b></div>
   </div>
 </div>
 
 <div class="parties">
   <div class="party">
     <h2>Vendeur</h2>
-    <p class="name">DOS SANTOS ALVARELHOS Kevin</p>
-    <p>24 Avenue Jean-Jacques Rousseau, 93190 Livry-Gargan</p>
+    <p class="name">DOS SANTOS ALVARELHOS, Kevin</p>
+    <p>24 avenue Jean-Jacques Rousseau, 93190 Livry-Gargan</p>
     <p>SIREN : 878 954 130 — RCS Bobigny</p>
     <p>Tél. : +33 7 53 43 30 56</p>
     <p>Négociant automobile (professionnel acquéreur, art. R.322-4 CR)</p>
@@ -110,11 +110,11 @@ tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px sol
     <p class="name">MÉHIDI Hakim</p>
     <p>Né le 22/07/1995 à Châlons-en-Champagne</p>
     <p>13 rue de Savigny, Escalier 2, 91390 Morsang-sur-Orge</p>
-    <p>Tél. : +33 3 65 20 59 422 &nbsp; Email : Hakim.mehidi@yahoo.fr</p>
+    <p>Tél. : +33 6 52 05 94 22 &nbsp; Email : hakim.mehidi@yahoo.fr</p>
   </div>
 </div>
 
-<div class="delivery"><b>Point de livraison</b> Athis-Mons (91)&nbsp;&nbsp;Date de remise : 02/03/2026</div>
+<div class="delivery"><b>Point de livraison</b> Athis-Mons (91200)&nbsp;&nbsp;Date de remise : 02/03/2026</div>
 
 <div class="section-title">Produits et services</div>
 <table class="items">
@@ -129,9 +129,8 @@ tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px sol
       <tr><td class="k">Carburant | Classe environnementale</td><td class="v">Hybride essence (EH) | Euro 6d</td></tr>
       <tr><td class="k">Kilométrage (non garanti)</td><td class="v">28 500 km</td></tr>
       <tr><td class="k">1<sup>re</sup> mise en circulation | CT valable jusqu'au</td><td class="v">18/03/2022 | 01/10/2027</td></tr>
-      <tr><td class="k">Nombre de clés | Propriétaires précédents</td><td class="v"><span class="fill f-xs"></span> | [À COMPLÉTER]</td></tr>
+      <tr><td class="k">Nombre de clés</td><td class="v">2</td></tr>
       <tr><td class="k">Accidenté | Véhicule de société</td><td class="v">Non | Non</td></tr>
-      <tr><td class="k">Régime de TVA</td><td class="v">TVA sur la marge — art. 297 A CGI [à confirmer]</td></tr>
     </table>
   </td></tr>
   <tr><td class="pos">02</td><td>Garantie légale (vices cachés, art. 1641 CC)</td><td class="qty">01</td><td class="num">incluse</td></tr>
@@ -146,16 +145,8 @@ tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px sol
 </div>
 
 <div class="pay-lines">
-  <div><b>Mode de paiement :</b> Virement bancaire</div>
+  <div><b>Mode de paiement :</b> Virement</div>
   <div><b>Montant du paiement :</b> 15 800,00 €</div>
-</div>
-
-<div class="paybox">
-  <h3>Informations de paiement</h3>
-  <p>Le total doit être réglé par virement bancaire sur le compte suivant avant la livraison :</p>
-  <p>Titulaire du compte : DOS SANTOS ALVARELHOS Kevin</p>
-  <p>IBAN : [À COMPLÉTER] &nbsp;&nbsp; BIC : [À COMPLÉTER]</p>
-  <p>Référence à mentionner : Vente Clio GF-405-GG</p>
 </div>
 
 <p class="sig-intro">Fait à Athis-Mons, le 02/03/2026, en deux exemplaires originaux, dont un remis à chaque partie.</p>
@@ -171,8 +162,8 @@ tr.discount td { color: var(--muted); font-style: italic; border-bottom: 1px sol
 </div>
 
 <div class="footer">
-  DOS SANTOS ALVARELHOS Kevin — SIREN 878 954 130 — RCS Bobigny — 24 Avenue Jean-Jacques Rousseau, 93190 Livry-Gargan<br>
-  Tél. +33 7 53 43 30 56 — Régime TVA sur la marge (art. 297 A CGI) [à confirmer]
+  DOS SANTOS ALVARELHOS Kevin — SIREN 878 954 130 — RCS Bobigny — 24 avenue Jean-Jacques Rousseau, 93190 Livry-Gargan<br>
+  Tél. +33 7 53 43 30 56 — Régime TVA sur la marge (art. 297 A CGI)
 </div>
 <div class="footbar"></div>
 

@@ -60,9 +60,8 @@ new_vgrid = '''<table class="vgrid">
       <tr><td class="k">Carburant | Classe environnementale</td><td class="v">Hybride essence (EH) | Euro 6d</td></tr>
       <tr><td class="k">Kilométrage (non garanti)</td><td class="v">28 500 km</td></tr>
       <tr><td class="k">1<sup>re</sup> mise en circulation | CT valable jusqu'au</td><td class="v">18/03/2022 | 01/10/2027</td></tr>
-      <tr><td class="k">Nombre de clés | Propriétaires précédents</td><td class="v"><span class="fill f-xs"></span> | 2</td></tr>
+      <tr><td class="k">Nombre de clés</td><td class="v">2</td></tr>
       <tr><td class="k">Accidenté | Véhicule de société</td><td class="v">Non | Non</td></tr>
-      <tr><td class="k">Régime de TVA</td><td class="v">TVA sur la marge — art. 297 A CGI</td></tr>
     </table>'''
 # find the vgrid block and swap
 start = src.find('<table class="vgrid">')
@@ -94,19 +93,16 @@ src = src.replace(
   '<div class="t-val"><span class="fill f-s"></span> €</div>',
   '<div class="t-val">15 800,00 €</div>')
 
-# --- payment box ---
+# --- payment lines (keep mode + amount, remove paybox/IBAN section) ---
+src = src.replace(
+  '<div><b>Mode de paiement :</b> Virement bancaire</div>',
+  '<div><b>Mode de paiement :</b> Virement</div>')
 src = src.replace(
   '<div><b>Montant du paiement :</b> <span class="fill f-s"></span> €</div>',
   '<div><b>Montant du paiement :</b> 15 800,00 €</div>')
-src = src.replace(
-  '<p>Titulaire du compte : <span class="fill f-l"></span></p>',
-  '<p>Titulaire du compte : DOS SANTOS ALVARELHOS Kevin</p>')
-src = src.replace(
-  '<p>IBAN : <span class="fill f-xl"></span> &nbsp;&nbsp; BIC : <span class="fill f-s"></span></p>',
-  '<p>IBAN : [À COMPLÉTER] &nbsp;&nbsp; BIC : [À COMPLÉTER]</p>')
-src = src.replace(
-  '<p>Référence à mentionner : <span class="fill f-m"></span></p>',
-  '<p>Référence à mentionner : Vente Clio GF-405-GG</p>')
+# remove entire paybox div (Informations de paiement + IBAN/BIC/Référence)
+import re as _re
+src = _re.sub(r'<div class="paybox">.*?</div>\s*', '', src, flags=_re.DOTALL)
 
 # --- signatures place/date ---
 src = src.replace(
@@ -115,7 +111,7 @@ src = src.replace(
 
 # --- footer: seller identity ---
 src = src.replace(
-  'Raison sociale — Forme juridique — Adresse du siège social — SIREN — Capital social (le cas échéant)<br>\n  Tél. — Email — N° TVA intracommunautaire ou mention du régime applicable (à compléter)',
+  'Raison sociale — Forme juridique — Adresse du siège social — SIREN — SIRET — Capital social (le cas échéant)<br>\n  Tél. — Email — N° TVA intracommunautaire ou mention du régime applicable (à compléter)',
   'DOS SANTOS ALVARELHOS Kevin — SIREN 878 954 130 — RCS Bobigny — 24 avenue Jean-Jacques Rousseau, 93190 Livry-Gargan<br>\n  Tél. +33 7 53 43 30 56 — Régime TVA sur la marge (art. 297 A CGI)')
 
 # --- brand header -> neutral seller banner ---
